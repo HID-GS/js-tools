@@ -10,6 +10,7 @@ RUN npm install -g eslint \
     eslint-plugin-prettier \
     eslint-config-prettier \
     prettier \
+    yarn \
     && npm info "$PKG@latest" peerDependencies --json \
     | command sed 's/[\{\},]//g ; s/: /@/g' \
     | xargs npm install --save-dev "$PKG@latest"
