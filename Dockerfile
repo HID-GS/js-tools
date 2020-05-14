@@ -1,19 +1,11 @@
-FROM node:8.17-alpine
+FROM node:14-alpine
 
-ENV PKG eslint-config-airbnb
-
-RUN npm install -g eslint \
+RUN npm install -g eslint-config-drupal-bundle \
     stylelint \
     stylelint-order \
     stylelint-no-browser-hacks \
     stylelint-config-standard \
-    stylelint-junit-formatter \
-    eslint-plugin-prettier \
-    eslint-config-prettier \
-    prettier \
-    && npm info "$PKG@latest" peerDependencies --json \
-    | command sed 's/[\{\},]//g ; s/: /@/g' \
-    | xargs npm install --save-dev "$PKG@latest"
+    stylelint-junit-formatter
 
 WORKDIR /app
 
